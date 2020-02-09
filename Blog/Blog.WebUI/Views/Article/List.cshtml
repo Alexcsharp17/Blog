@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Blog.Domain.Entities.Review>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+
+@foreach(var r in Model)
+{
+    <h2>@r.Article.Name</h2>
+    <P>@r.Article.Description</P> <br />
+    <p>@r.Author</p> <br />
+    <p>@r.Text</p> <br />
+    <div class="btn btn-secondary">
+     @using (Html.BeginForm("Reviws", "Review", FormMethod.Get))
+    {
+        <input type="hidden" value=@r.Article.ArticleId name="ArticleId" />
+        <input type="submit" value="Add Review" />
+    }
+    </div>
+}

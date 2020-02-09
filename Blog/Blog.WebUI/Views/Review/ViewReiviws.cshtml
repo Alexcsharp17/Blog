@@ -1,0 +1,27 @@
+﻿@model IEnumerable<Blog.Domain.Entities.Review>
+
+@{
+    ViewBag.Title = "ViewReiviws";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="offset-5 ">
+  
+
+    <div class=" btn btn-dark" style="color:wheat">
+        @Html.ActionLink("Add  New", "Reviws")
+    </div>
+
+
+    @foreach (var item in Model)
+    {
+
+        <h3>@Html.DisplayFor(modelItem => item.Author)</h3>
+
+
+        <p>@Html.DisplayFor(modelItem => item.Text)</p>
+        <br />
+
+    }
+</div>
+

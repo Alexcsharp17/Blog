@@ -1,0 +1,71 @@
+﻿@model Blog.Domain.Entities.Review
+
+@{
+    ViewBag.Title = "Reviws";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (@ViewBag.AddStatus != null)
+{
+    <script>
+alert("Вы успешно добавили отзыв. ")
+        @ViewBag.AddStatus = null;
+    </script>
+
+}
+<div class=" containter rev-cont">
+    @using (Html.BeginForm("Reviws", "Review"))
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Review</h4>
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
+
+            </div>
+        </div>
+
+        @foreach (var property in ViewData.ModelMetadata.Properties)
+        {
+
+            <p class="alert-danger"> @Html.ValidationMessage(property.PropertyName)</p>
+        }
+        <input name="ArticleId" type="hidden" value=@Model.ArticleId />
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default btn-primary" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class=" btn btn-light to-list">
+                @Html.ActionLink("Back to List", "ViewReiviws")
+            </div>
+        </div>
+
+    </div>
+    }
+
+
+
+</div>
+
+<style>
+    .rev-cont {
+    }
+</style>

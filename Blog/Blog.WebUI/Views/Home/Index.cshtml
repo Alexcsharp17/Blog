@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Blog.Domain.Entities.Article>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<p class="btn btn-secondary offset-5">
+    @Html.ActionLink("Add Artcicle","AddArticle", "Article")
+</p>
+
+<div class="row">
+    <div class="main-body offset-1 col-8">
+        @foreach (var a in Model)
+        {
+        <div class="card offset-1 col-10">
+            <h3>@a.Name</h3>
+            <p>@a.Description</p> <br />
+            <p>@a.Date.Date</p>
+            @using (Html.BeginForm("Reviws", "Review", FormMethod.Get))
+            {
+                <input type="hidden" value=@a.ArticleId name="ArticleId" />
+                <input type="submit" value="Add Review" />
+            }
+        </div>
+
+        }
+    </div>
+    <div class="rigt_sidebar col2">
+        <div class="btn-group-vertical">
+
+            <div class="btn btn-secondary">@Html.ActionLink("Main", "Index", "Home")</div>
+            <div class="btn btn-secondary">@Html.ActionLink("Ancet", "Ancet", "Ancet")</div>
+            <div class="btn btn-secondary">@Html.ActionLink("Reviews", "ViewReiviws", "Review")</div>
+        </div>
+    </div>
+    
+</div>

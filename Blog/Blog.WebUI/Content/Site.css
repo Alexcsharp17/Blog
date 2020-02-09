@@ -1,0 +1,129 @@
+﻿body, html {
+    position: relative;
+    background-color: lightblue;
+    height: 100%;
+    min-height: 100%;
+}
+
+footer {
+    bottom: 0;
+    height: 50px;
+    color: #b1b1b1;
+    background-color: #ffffff;
+}
+
+.content {
+    /*min-height: calc(100%-50px);
+    margin-bottom:-50px;*/
+    flex-grow: 1;
+}
+/*
+.content:after{
+    content:'';
+    display:block;
+}
+
+.content:after, .footer{
+    height: 50px;
+}*/
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.slogan {
+    text-align: center;
+}
+
+.logo {
+    height: 70px;
+    width: 70px;
+}
+
+.cont {
+    width: 80%;
+}
+
+.main-body {
+    background-color: lightblue;
+    text-align: left;
+    border: 2px dashed black;
+}
+
+    .main-body h3 {
+        text-align: center;
+    }
+
+.anchor {
+    float: right;
+    color: black;
+    text-decoration: none;
+}
+
+.cpy {
+    padding-left: 20px;
+}
+
+.copy {
+}
+
+.cont {
+    padding-top: 10px;
+}
+
+.Ancet-body {
+    padding: 20px;
+    background-color: azure;
+    padding-left: 20%;
+    border: 10px dotted red;
+    min-height: 100%;
+}
+
+.cor_answ {
+    color: green;
+    font-size: 20px;
+}
+
+.wr_answ {
+    color: red;
+    font-size: 20px;
+}
+
+.rev-cont {
+    padding: 10px;
+    border: 2px dotted black;
+    border-radius: 5px;
+    padding-left: 40%;
+}
+
+.to-list {
+    padding-left: 20px;
+}
+#footer {
+    background-color: red;
+}

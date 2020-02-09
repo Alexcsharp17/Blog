@@ -1,0 +1,52 @@
+﻿@using Blog.WebUI.Helpers
+@{
+    ViewBag.Title = "Ancet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    string[] colors = new string[] { "Blue", "Red", "Yellow" };
+}
+
+
+<div class="Ancet-body">
+    <h2>Answer a few simple questions</h2>
+    @using (Html.BeginForm("Ancet", "Ancet", FormMethod.Post))
+    {
+        <p>What is your right answer 2+2?</p>
+        <br />
+        @Html.RadioButton("q1", "4")
+        <span>Anwer is 4</span> <br />
+        @Html.RadioButton("q1", "3")
+        <span>Anwer is 3</span> <br />
+        @Html.RadioButton("q1", "3")
+        <span> Anwer is 2</span>
+
+        <p>Who is the president of USA?</p>
+
+        @Html.RadioButton("q2", "Donald Trump")
+        <span>Donald Trump</span> <br />
+        @Html.RadioButton("q2", "Angela Merkel")
+        <span>Angela Merkel</span> <br />
+        @Html.RadioButton("q2", "Justin Biber")
+        <span>Justin Biber</span>
+        <p> Select all items which is made of wood</p>
+        @Html.CheckBox("q3", "Table")
+        <span>TAble</span> <br />
+        @Html.CheckBox("q3", "Book")
+        <span>Book</span> <br />
+        @Html.CheckBox("q3", "Towel")
+        <span>Towel</span> <br />
+
+        <p>Input the color of the sun!</p>
+        <br />
+        <p>Your options</p>
+        @ListHelper.CreateList(Html, colors) <br />
+        @Html.TextBox("color") <br />
+        <p>Input your Name</p>
+        @Html.TextBox("name") <br />
+        <input type="submit" value="Check result" />
+    }
+</div>
+
+

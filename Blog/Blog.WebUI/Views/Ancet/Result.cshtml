@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Result";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="Ancet-body">
+    <h2>Result</h2>
+
+    @if (ViewBag.Res == true)
+    {
+        <p class="cor_answ">@ViewBag.Name , Your answers was correct</p>
+    }
+    else
+    {
+        <p class="wr_answ">@ViewBag.Name Your answer is Incorrect. Try Again.</p>
+    }
+</div>
