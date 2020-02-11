@@ -19,14 +19,16 @@ namespace Blog.Domain.Entities
         [Display(Name = "Text")]
         [Required(ErrorMessage = "Please input article description")]
         public string Description { get; set; }
-       
-        
+        [HiddenInput(DisplayValue = false)]
+        public string Slug { get; set; }
+
         public IEnumerable<Review> Reviews { get; set; }
         public Article()
         {
             Reviews = new List<Review>();
         }
         [HiddenInput(DisplayValue = false)]
+        [DataType(DataType.Date)]
         public DateTime Date { get; set; }
         
     }

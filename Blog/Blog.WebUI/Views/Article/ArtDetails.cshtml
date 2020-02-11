@@ -1,0 +1,22 @@
+﻿@model Blog.Domain.Entities.Article
+
+@{
+    ViewBag.Title = "ArtDetails";
+}
+
+
+<div class="card ml-4">
+    <div class="card-header text-center">
+        <h4>@Model.Name</h4> 
+    </div>
+    <div class="card-body">
+        
+        <p class="card-text">@Model.Description</p>
+       
+
+    </div>
+    <div class="card-footer text-muted text-left">
+        <span>@Model.Date</span>
+        <span class="float-right">Author</span>
+    </div>
+</div>

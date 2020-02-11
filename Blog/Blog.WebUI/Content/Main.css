@@ -1,6 +1,6 @@
 ﻿body, html {
     position: relative;
-    background-color: lightblue;
+   
     height: 100%;
     min-height: 100%;
 }
@@ -33,7 +33,16 @@ body {
 }
 
 
-
+.bg {
+    /* The image used */
+    background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).jpg");
+    /* Full height */
+    height: 100%;
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 /* Set padding to keep content from hitting the edges */
@@ -58,6 +67,10 @@ textarea {
 
 .slogan {
     text-align: center;
+   
+}
+#title{
+    color:red;
 }
 
 .logo {
@@ -70,9 +83,9 @@ textarea {
 }
 
 .main-body {
-    background-color: lightblue;
-    text-align: left;
-    border: 2px dashed black;
+ 
+    
+   
 }
 
     .main-body h3 {
@@ -89,8 +102,6 @@ textarea {
     padding-left: 20px;
 }
 
-.copy {
-}
 
 .cont {
     padding-top: 10px;
@@ -98,7 +109,7 @@ textarea {
 
 .Ancet-body {
     padding: 20px;
-    background-color: azure;
+    
     padding-left: 20%;
     border: 10px dotted red;
     min-height: 100%;
@@ -116,7 +127,7 @@ textarea {
 
 .rev-cont {
     padding: 10px;
-    border: 2px dotted black;
+   
     border-radius: 5px;
     padding-left: 40%;
 }

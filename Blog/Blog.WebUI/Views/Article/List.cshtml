@@ -6,17 +6,34 @@
 
 <h2>List</h2>
 
-@foreach(var r in Model)
+@foreach (var r in Model)
 {
-    <h2>@r.Article.Name</h2>
-    <P>@r.Article.Description</P> <br />
-    <p>@r.Author</p> <br />
-    <p>@r.Text</p> <br />
-    <div class="btn btn-secondary">
-     @using (Html.BeginForm("Reviws", "Review", FormMethod.Get))
+
+<div class="card">
+    <div class="card-header text-center">
+        @r.Article.Name
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">@r.Article.Slug</p>
+        <a href="#" class="btn btn-primary">View all</a>
+
+    </div>
+    <div class="card-footer text-muted text-left">
+        @r.Article.Date
+    </div>
+    <div class="card-footer text-muted text-right">
+        Author
+    </div>
+</div>
+
+
+
+<div class="btn btn-secondary">
+    @using (Html.BeginForm("Reviws", "Review", FormMethod.Get))
     {
         <input type="hidden" value=@r.Article.ArticleId name="ArticleId" />
         <input type="submit" value="Add Review" />
     }
-    </div>
+</div>
 }

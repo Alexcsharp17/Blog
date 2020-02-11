@@ -37,6 +37,11 @@ namespace Blog.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public Article FindArticle(int artId)
+        {
+            var art = context.Articles.Find(artId);
+            return (art);
+        }
         public Article DeleteArticle(int articleId)
         {
             Article dbEntry = context.Articles.Find(articleId);

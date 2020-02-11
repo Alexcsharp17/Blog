@@ -17,8 +17,32 @@ namespace Blog.WebUI.Controllers
         }
         public ActionResult Index()
         {
+            var articles = repository.Articles;
+            foreach(var a in articles)
+            {
+                if (a.Description.Length > 200)
+                {
+                    a.Slug = a.Description.Substring(0, 200) + "...";
+
+                }
+                else
+                {
+                    a.Slug = a.Description;
+                }
+            }
             
-            return View(repository.Articles);
+            return View(articles);
+        }
+        [HttpGet]
+        public ActionResult Test()
+        {
+            return PartialView();
+        }
+        [HttpPost]
+        public ActionResult Test2(string name)
+        {
+            ViewBag.Name = name;
+            return PartialView();
         }
 
        

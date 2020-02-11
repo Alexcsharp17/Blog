@@ -77,11 +77,21 @@
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Entities\Article.cs" />
     <Compile Include="Entities\Review.cs" />
+    <Compile Include="Migrations\202002111413121_MigrateDB.cs" />
+    <Compile Include="Migrations\202002111413121_MigrateDB.designer.cs">
+      <DependentUpon>202002111413121_MigrateDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202002111413121_MigrateDB.resx">
+      <DependentUpon>202002111413121_MigrateDB.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

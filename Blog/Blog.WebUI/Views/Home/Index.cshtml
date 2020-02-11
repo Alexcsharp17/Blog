@@ -6,34 +6,42 @@
 
 
 
-<p class="btn btn-secondary offset-5">
-    @Html.ActionLink("Add Artcicle","AddArticle", "Article")
+
+
+
+<div class="">
+    @foreach (var a in Model)
+    {
+        <div class="card offset-1 mt-3">
+            <div class="card-header text-center">
+                <h5 class="card-title">@a.Name</h5>
+
+            </div>
+            <div class="card-body">
+
+                <p class="card-text">@a.Slug</p>
+                @using (Html.BeginForm("ArtDetails", "Article", FormMethod.Post))
+                {
+                    <input type="hidden" name="artId" value=@a.ArticleId>
+                    <input type="submit" class="btn btn-primary" value="View all" />
+                }
+
+            </div>
+            <div class="card-footer text-muted text-left">
+                <span>@a.Date</span>
+                <span class="float-right">Author</span>
+            </div>
+
+        </div>
+
+    }
+</div>
+<p class="btn btn-secondary mt-2 offset-1">
+    @Html.ActionLink("Add Artcicle", "AddArticle", "Article")
 </p>
 
-<div class="row">
-    <div class="main-body offset-1 col-8">
-        @foreach (var a in Model)
-        {
-        <div class="card offset-1 col-10">
-            <h3>@a.Name</h3>
-            <p>@a.Description</p> <br />
-            <p>@a.Date.Date</p>
-            @using (Html.BeginForm("Reviws", "Review", FormMethod.Get))
-            {
-                <input type="hidden" value=@a.ArticleId name="ArticleId" />
-                <input type="submit" value="Add Review" />
-            }
-        </div>
+@section Vote {
+    @Html.Partial("~/Views/Vote/VotingRes.cshtml")
+}
 
-        }
-    </div>
-    <div class="rigt_sidebar col2">
-        <div class="btn-group-vertical">
 
-            <div class="btn btn-secondary">@Html.ActionLink("Main", "Index", "Home")</div>
-            <div class="btn btn-secondary">@Html.ActionLink("Ancet", "Ancet", "Ancet")</div>
-            <div class="btn btn-secondary">@Html.ActionLink("Reviews", "ViewReiviws", "Review")</div>
-        </div>
-    </div>
-    
-</div>

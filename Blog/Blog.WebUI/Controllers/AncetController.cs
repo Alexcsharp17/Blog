@@ -24,5 +24,6 @@ namespace Blog.WebUI.Controllers
             ViewBag.Name = name;
             return View("Result");
         }
+        
     }
 }

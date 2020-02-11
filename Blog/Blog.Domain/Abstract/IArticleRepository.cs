@@ -12,5 +12,7 @@ namespace Blog.Domain.Abstract
         IEnumerable<Article> Articles { get; }
         void SaveArticle(Article article);
         Article DeleteArticle(int articleId);
+         Article FindArticle(int artId);
+       
     }
 }

@@ -143,6 +143,7 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
+    <Compile Include="Controllers\VoteController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,7 +166,6 @@
     <Content Include="Content\Main.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -301,6 +301,11 @@
     <Content Include="Views\Ancet\Result.cshtml" />
     <Content Include="Views\Review\Reviws.cshtml" />
     <Content Include="Views\Review\ViewReiviws.cshtml" />
+    <Content Include="Views\Home\Test.cshtml" />
+    <Content Include="Views\Article\ArtDetails.cshtml" />
+    <Content Include="Views\Vote\VotingRes.cshtml" />
+    <Content Include="Views\Vote\VotingResShow.cshtml" />
+    <Content Include="Views\Home\Test2.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

@@ -1,0 +1,29 @@
+﻿
+<div>
+    @using (Ajax.BeginForm("VotingResShow", "Vote", new AjaxOptions { UpdateTargetId = "sres" }))
+    {
+        <div class="mt-2">
+            <p>Do you like our blog?</p>
+
+            <p> @Html.RadioButton("answ", "yes") Yes </p>
+
+
+            <p>  @Html.RadioButton("answ", "no")  No </p>
+
+
+            <p>  @Html.RadioButton("answ", "so-so") So-so</p>
+
+
+            <input type="submit" value="Send" class="btn btn-info" />
+
+
+        </div>
+
+    }
+
+    <div id="sres">
+        Thisismy test
+    </div>
+</div>
+@Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+@Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")

@@ -46,6 +46,12 @@ namespace Blog.WebUI.Controllers
             return View(article);
             }
         }
+        [HttpPost]
+        public ActionResult ArtDetails(int artId)
+        {
+            var art = repository.FindArticle(artId);
+            return View(art);
+        }
 
     }
 }
