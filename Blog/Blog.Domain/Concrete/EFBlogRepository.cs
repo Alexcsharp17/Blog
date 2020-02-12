@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Domain.Concrete
 {
-    public class EFBlogRepository : IArticleRepository 
+    public class EFBlogRepository : IArticleRepository , IReviewRepository
     {
         EFDbContext context = new EFDbContext();
 
@@ -19,6 +19,7 @@ namespace Blog.Domain.Concrete
            
        
         }
+        public IEnumerable<Review> Reviews { get { return context.Reviews; } }
         public void SaveArticle(Article article)
         {
             if (article.ArticleId == 0)
@@ -37,10 +38,31 @@ namespace Blog.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public void SaveReview(Review review)
+        {
+            if (review.ReviewId== 0)
+                context.Reviews.Add(review);
+            else
+            {
+                Review dbEntry = context.Reviews.Find(review.ReviewId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Author =review.Author;
+                    dbEntry.Text = review.Text;
+                    
+                }
+            }
+            context.SaveChanges();
+        }
         public Article FindArticle(int artId)
         {
             var art = context.Articles.Find(artId);
             return (art);
+        }
+        public Review FindReview(int revId)
+        {
+            var rev = context.Reviews.Find(revId);
+            return (rev);
         }
         public Article DeleteArticle(int articleId)
         {
@@ -52,9 +74,16 @@ namespace Blog.Domain.Concrete
             }
             return dbEntry;
         }
-        public IEnumerable<Review> Reviews
+        public Review DeleteReview(int reviewId)
         {
-            get { return context.Reviews; }
+            Review dbEntry = context.Reviews.Find(reviewId);
+            if (dbEntry != null)
+            {
+                context.Reviews.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
         }
+
     }
 }

@@ -24,10 +24,24 @@ namespace Blog.WebUI.Controllers
                 {
                     a.Slug = a.Description.Substring(0, 200) + "...";
 
+
                 }
                 else
                 {
                     a.Slug = a.Description;
+                }
+                char sep = Convert.ToChar(" ");
+                string res="";
+                if (a.Categories != null)
+                {
+                    string[] cat = a.Categories.Split(sep);
+                    foreach (var c in cat)
+                    {
+                        string s = "#" + c.ToString()+" ";
+                      
+                        res += s;
+                    }
+                    a.Categories = res;
                 }
             }
             

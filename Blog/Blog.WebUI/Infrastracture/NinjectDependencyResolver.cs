@@ -36,6 +36,7 @@ namespace Blog.WebUI.Infrastracture
             private void AddBindings()
             {
             kernel.Bind<IArticleRepository>().To<EFBlogRepository>();
+            kernel.Bind<IReviewRepository>().To<EFBlogRepository>();
         }
     }
 }

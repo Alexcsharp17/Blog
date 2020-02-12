@@ -7,25 +7,28 @@ using System.Web.Mvc;
 using System.Data.Entity;
 using Blog.Domain.Concrete;
 using Blog.Domain.Entities;
+using Blog.WebUI.Models;
 
 namespace Blog.WebUI.Controllers
 {
     public class ArticleController : Controller
     {  
-        EFDbContext db = new EFDbContext();
+        
         
         private IArticleRepository repository;
-        public ArticleController(IArticleRepository repo )
+        private IReviewRepository repository2;
+        public ArticleController(IArticleRepository repo, IReviewRepository repo2 )
         {
             repository = repo;
+            repository2 = repo2;
         }
         //Testing how to bind review to articles
         public ViewResult List()
         {
           
-            var rev = db.Reviews.Include(r => r.Article);
+            
            
-            return View(rev);
+            return View();
         }
         [HttpGet]
         public ActionResult AddArticle()
@@ -48,9 +51,13 @@ namespace Blog.WebUI.Controllers
         }
         [HttpPost]
         public ActionResult ArtDetails(int artId)
-        {
+        {     
             var art = repository.FindArticle(artId);
-            return View(art);
+            var rev = repository2.Reviews.Where(r => r.ArticleId == art.ArticleId);
+            ArticleReviewViewModel model = new ArticleReviewViewModel(rev, art);
+
+            
+            return View(model);
         }
 
     }

@@ -73,9 +73,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IArticleRepository.cs" />
+    <Compile Include="Abstract\IReviewRepository.cs" />
     <Compile Include="Concrete\EFBlogRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />
     <Compile Include="Entities\Article.cs" />
+    <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\Review.cs" />
     <Compile Include="Migrations\202002111413121_MigrateDB.cs" />
     <Compile Include="Migrations\202002111413121_MigrateDB.designer.cs">

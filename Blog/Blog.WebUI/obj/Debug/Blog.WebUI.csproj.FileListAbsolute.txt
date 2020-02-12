@@ -202,3 +202,4 @@ D:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.csproj.CoreCompileInputs.cac
 D:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.csproj.CopyComplete
 D:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.dll
 D:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.pdb
+D:\GitHub\Blog\Blog\Blog.WebUI\bin\AjaxMin.dll
