@@ -1,15 +1,21 @@
 ﻿body, html {
-    position: relative;
-   
-    height: 100%;
+  
+    height: 100vh;
     min-height: 100%;
 }
+body{
+    display:flex;
+    flex-direction:column;
+}
+
 
 footer {
+    
     bottom: 0;
     height: 50px;
     color: #b1b1b1;
     background-color: #ffffff;
+    flex-grow:0;
 }
 
 .content {
@@ -27,10 +33,7 @@ footer {
     height: 50px;
 }*/
 
-body {
-    display: flex;
-    flex-direction: column;
-}
+
 
 
 .bg {
@@ -57,7 +60,9 @@ body {
 .dl-horizontal dt {
     white-space: normal;
 }
-
+#ttle{
+    color:white;
+}
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
@@ -138,4 +143,10 @@ textarea {
 
 #footer {
     background-color: #ffffff;
+}
+#rev_area{
+    background-image:url( back.jpg);
+}
+#m_cont {
+    background-color: #C8A2C8;
 }

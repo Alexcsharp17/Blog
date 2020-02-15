@@ -15,5 +15,6 @@ namespace Blog.WebUI.Models
             this.article = article;
             this.reviews = reviews;
         }
+       
     }
 }

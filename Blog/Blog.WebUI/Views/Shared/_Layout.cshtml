@@ -13,19 +13,19 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-dark bg-dark">
         <a class="navbar-brand" href="#"><img src="~/Content/logo.png" style="height:40px;" /></a>
-        <div style="margin-left:40%; magrin-right:50%;"><h3>My blog Title</h3></div>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <div style="margin-left:40%; margin-right:40%;"><h3 id="ttle">BestBlog</h3></div>
+        @*<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-        </div>
+        </div>*@
     </nav>
 
-    <div class=" row ">
+    <div class=" row  " id="m_cont">
 
         <div class="content main-body offset-1 col-8"> @RenderBody()</div>
         <div class="rigt_sidebar col2">
@@ -47,7 +47,7 @@
 
 
 
-    <footer id="footer">
+    <footer id="footer" class="bg-dark">
         <div class="row">
             <div class="offset-1 col-4 cpy">
                 <p class="copy">&copy; Alex Grebtsov 2020</p>
@@ -62,7 +62,6 @@
     @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
     @RenderSection("scripts", required: false)
 
-    <style>
-    </style>
+   
 </body>
 </html>

@@ -151,8 +151,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\ListHelper.cs" />
+    <Compile Include="Helpers\PagingHelpers.cs" />
     <Compile Include="Infrastracture\NinjectDependencyResolver.cs" />
     <Compile Include="Models\ArticleReviewViewModel.cs" />
+    <Compile Include="Models\IndexViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +162,7 @@
     <Content Include="App_Data\Blog_log.ldf">
       <DependentUpon>Blog.mdf</DependentUpon>
     </Content>
+    <Content Include="Content\back.jpg" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-grid.min.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -309,18 +312,17 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Article\AddArticle.cshtml" />
     <Content Include="Views\Ancet\Ancet.cshtml" />
     <Content Include="Views\Ancet\Result.cshtml" />
     <Content Include="Views\Review\Reviws.cshtml" />
     <Content Include="Views\Review\ViewReiviws.cshtml" />
-    <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Vote\VotingRes.cshtml" />
     <Content Include="Views\Vote\VotingResShow.cshtml" />
-    <Content Include="Views\Home\Test2.cshtml" />
     <Content Include="Scripts\jquery.validate.unobtrusive.bootstrap.min.js.map" />
     <Content Include="Views\Article\ArtDetails.cshtml" />
     <Content Include="Views\Review\ViewReview.cshtml" />
+    <Content Include="Views\Article\AddArticle.cshtml" />
+    <Content Include="Views\Review\AddReview.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

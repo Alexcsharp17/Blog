@@ -59,6 +59,4 @@ D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.csproj.CoreCompileInputs.c
 D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.csproj.CopyComplete
 D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.dll
 D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.pdb
-D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.Migrations.MigrateDB.resources
-D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.csproj.GenerateResource.cache
 D:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.csprojAssemblyReference.cache

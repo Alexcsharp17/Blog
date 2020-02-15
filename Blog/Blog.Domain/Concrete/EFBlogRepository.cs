@@ -59,6 +59,14 @@ namespace Blog.Domain.Concrete
             var art = context.Articles.Find(artId);
             return (art);
         }
+        public IEnumerable< Article> FindArticle(string category)
+        {
+            string[] cat = category.Split(' ');
+           
+            
+            var art = context.Articles.Where(a => a.Categories.Contains(category));
+            return (art);
+        }
         public Review FindReview(int revId)
         {
             var rev = context.Reviews.Find(revId);

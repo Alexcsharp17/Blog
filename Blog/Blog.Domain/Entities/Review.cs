@@ -20,7 +20,7 @@ namespace Blog.Domain.Entities
         public string Text { get; set; }
         [HiddenInput(DisplayValue = false)]
         public Article Article { get; set; }
-        
+        [HiddenInput(DisplayValue = false)]
         public int ArticleId { get; set; }
         
     }

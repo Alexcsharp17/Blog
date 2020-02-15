@@ -28,13 +28,19 @@ namespace Blog.Domain.Entities
             Reviews = new List<Review>();
 
         }
-       
+
         [Required]
         
         public string Categories { get; set; }
         [HiddenInput(DisplayValue = false)]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
-        
+
+        //Properties for feedback form
+        public int Yes { get; set; }
+        public int No { get; set; }
+
+        public int So_so { get; set; }
+
     }
 }

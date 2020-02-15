@@ -21,15 +21,7 @@
         <span>@Model.article.Date.ToString().Split(' ')[0]</span>
         <span class="float-right">Author</span>
     </div>
-    <div id="mycomment">
-        @using (Ajax.BeginForm("AddReiview", "Review", new AjaxOptions { UpdateTargetId = "mycom" }))
-        {
-            <input type="text" placeholder="Input your name" name="name" class="input-group mt-1" />
-            @Html.TextArea("text") <br>
-            <input type="submit" value="Send" class="btn btn-info" />
-        }
-    </div>
-    <div id="mycom"></div>
+    @Html.Action("AddReview","Review",new {ArticleId= Model.article.ArticleId})
 
     @foreach (Blog.Domain.Entities.Review r in Model.reviews)
     {
@@ -46,12 +38,15 @@
                 </div>
             </div>
 
-
-
             
+
+
         </div>
 
     }
 </div>
+@section Vote {
+    @Html.Partial("~/Views/Vote/VotingRes.cshtml",new ViewDataDictionary { { "ArticleId", Model.article.ArticleId } })
+}
 
 

@@ -1,4 +1,5 @@
-﻿using Blog.Domain.Concrete;
+﻿using Blog.Domain.Abstract;
+using Blog.Domain.Concrete;
 using Blog.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,11 +11,17 @@ namespace Blog.WebUI.Controllers
 {
     public class ReviewController : Controller
     {
+        private IReviewRepository repository;
         EFDbContext db = new EFDbContext();
+        public ReviewController(IReviewRepository repo)  
+        {
+            repository = repo;
+        }
+
         // GET: Review
         public ActionResult ViewReiviws()
         {
-            IEnumerable<Review> reviews = db.Reviews;
+            IEnumerable<Review> reviews = repository.Reviews;
             
             return View(reviews);
         }
@@ -30,9 +37,9 @@ namespace Blog.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                repository.SaveReview(review);
                 
-                db.Reviews.Add(review);
-                db.SaveChanges();
                 ViewBag.AddStatus = true;
                 return View(review);
             }
@@ -42,6 +49,30 @@ namespace Blog.WebUI.Controllers
             }
 
            
+        }
+      [HttpPost]
+        public ActionResult AddReview(int ArticleId)
+        {
+            ViewBag.Id = ArticleId;
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddReviewRes(Review review)
+        {
+            
+                if (ModelState.IsValid)
+                {
+
+                    repository.SaveReview(review);
+
+                    ViewBag.AddStatus = true;
+                    return View("~/Views/Review/AddReview.cshtml");
+                }
+                else
+                {
+                    return View("~/Views/Review/AddReview.cshtml",review);
+                }
+            
         }
     }
 }

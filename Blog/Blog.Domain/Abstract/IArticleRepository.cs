@@ -13,6 +13,7 @@ namespace Blog.Domain.Abstract
         void SaveArticle(Article article);
         Article DeleteArticle(int articleId);
          Article FindArticle(int artId);
+        IEnumerable<Article> FindArticle(string category);
        
     }
 }

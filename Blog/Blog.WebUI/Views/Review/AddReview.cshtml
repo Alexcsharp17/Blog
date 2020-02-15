@@ -1,0 +1,48 @@
+﻿@model Blog.Domain.Entities.Review
+    @{ 
+        Layout = null;
+    }
+
+@if (ViewBag.AddStatus == true)
+{
+    <p class="alert alert-success m-1">You have added your review</p>
+}
+else
+{
+<div id="myrev">
+    
+    @using (Ajax.BeginForm("AddReviewRes", "Review", new AjaxOptions { UpdateTargetId = "myrev" }))
+    {
+        @Html.AntiForgeryToken()
+            
+        <div class="form-horizontal mt-2">
+            <h4 class="ml-3">Leave your comment bellow</h4>
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Author, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Text, new { htmlAttributes = new { @class = "form-control " } })
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <input type="hidden" name="ArticleId" value=@ViewBag.Id >
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Send" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+}

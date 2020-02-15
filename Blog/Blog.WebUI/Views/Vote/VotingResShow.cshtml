@@ -1,1 +1,25 @@
-﻿<p>@ViewBag.Res</p>
+﻿@{
+    int total = Convert.ToInt32(ViewBag.Yes) + Convert.ToInt32(ViewBag.No) + Convert.ToInt32(ViewBag.So_so);
+
+
+
+
+    double yes = Math.Round((double)ViewBag.Yes / total * 100, 0);
+    double no = Math.Round((double)ViewBag.No / total * 100, 0);
+    double so_so = Math.Round((double)ViewBag.So_so / total * 100, 0);
+
+
+}
+
+<h5>Yes</h5>
+<div class="progress">
+    <div class="progress-bar bg-success " style="width:@yes%" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"> <span class="font-size">@yes %</span></div>
+</div>
+<h5>No</h5>
+<div class="progress">
+    <div class="progress-bar bg-danger" style="width:@no%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span class="">@no %</span></div>
+</div>
+<h5>So-so</h5>
+<div class="progress">
+    <div class="progress-bar bg-warning" style="width:@so_so%" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"><span class="text-black-50 font-weight-bold">@so_so%</span></div>
+</div>
