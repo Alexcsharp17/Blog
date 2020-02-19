@@ -8,12 +8,15 @@ using System.Web.Mvc;
 
 namespace Blog.Domain.Entities
 {
-    class Author
-    {
-        
+   public class Author
+    {     
         [HiddenInput(DisplayValue = false)]
         public int AuthorId { get; set; }
         public string Name { get; set; }
-
+        public IEnumerable<Article> Articles { get; set; }
+        public Author()
+        {
+            this.Articles = new List<Article>();
+        }
     }
 }

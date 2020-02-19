@@ -13,6 +13,7 @@ namespace Blog.Domain.Concrete
         public DbSet<Article> Articles { get; set; }
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Tag> Tags { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

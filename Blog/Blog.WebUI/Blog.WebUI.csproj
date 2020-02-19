@@ -146,6 +146,7 @@
     <Compile Include="Areas\Admin\Controllers\MainController.cs" />
     <Compile Include="Controllers\AncetController.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\AuthorsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\VoteController.cs" />
@@ -334,6 +335,7 @@
     <Content Include="Views\Article\AddArticle.cshtml" />
     <Content Include="Views\Review\AddReview.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
+    <Content Include="Views\Authors\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Admin\Models\" />

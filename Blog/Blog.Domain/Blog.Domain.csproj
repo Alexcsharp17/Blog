@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IArticleRepository.cs" />
+    <Compile Include="Abstract\IAuthorRepository.cs" />
     <Compile Include="Abstract\IReviewRepository.cs" />
     <Compile Include="Concrete\EFBlogRepository.cs" />
     <Compile Include="Concrete\EFDbContext.cs" />

@@ -23,10 +23,12 @@ namespace Blog.Domain.Entities
         public virtual string Slug { get; set; }
 
         public IEnumerable<Review> Reviews { get; set; }
+        public IEnumerable<Author> Authors { get; set; }
         public Article()
         {
             Reviews = new List<Review>();
             Tags = new List<Tag>();
+            Authors = new List<Author>();
 
         }
 

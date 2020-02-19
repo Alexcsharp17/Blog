@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Domain.Concrete
 {
-    public class EFBlogRepository : IArticleRepository , IReviewRepository
+    public class EFBlogRepository : IArticleRepository , IReviewRepository, IAuthorRepository
     {
         EFDbContext context = new EFDbContext();
 
@@ -20,6 +20,8 @@ namespace Blog.Domain.Concrete
        
         }
         public IEnumerable<Review> Reviews { get { return context.Reviews; } }
+
+        public IEnumerable<Author> Authors { get { return context.Authors; } }
         public void SaveArticle(Article article)
         {
             if (article.ArticleId == 0)
@@ -54,6 +56,22 @@ namespace Blog.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public void SaveAuthor(Author author)
+        {
+            if (author.AuthorId == 0)
+                context.Authors.Add(author);
+            else
+            {
+                Author dbEntry = context.Authors.Find(author.AuthorId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = author.Name;
+                    dbEntry.AuthorId = author.AuthorId;
+
+                }
+            }
+            context.SaveChanges();
+        }
         public Article FindArticle(int artId)
         {
             var art = context.Articles.Find(artId);
@@ -64,6 +82,11 @@ namespace Blog.Domain.Concrete
         {
             var rev = context.Reviews.Find(revId);
             return (rev);
+        }
+        public Author FindAuthor(int authId)
+        {
+            var auth = context.Authors.Find(authId);
+            return (auth);
         }
         public Article DeleteArticle(int articleId)
         {
@@ -81,6 +104,16 @@ namespace Blog.Domain.Concrete
             if (dbEntry != null)
             {
                 context.Reviews.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
+        public Author DeleteAuthor(int authId)
+        {
+            Author dbEntry = context.Authors.Find(authId);
+            if (dbEntry != null)
+            {
+                context.Authors.Remove(dbEntry);
                 context.SaveChanges();
             }
             return dbEntry;
