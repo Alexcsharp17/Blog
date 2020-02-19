@@ -90,3 +90,7 @@ F:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.csprojAssemblyReference.ca
 F:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.csproj.CopyComplete
 F:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.dll
 F:\GitHub\Blog\Blog\Blog.Domain\obj\Debug\Blog.Domain.pdb
+D:\GitHub\Blog\Blog\Blog.Domain\bin\Debug\PagedList.dll
+D:\GitHub\Blog\Blog\Blog.Domain\bin\Debug\PagedList.xml
+D:\GitHub\Blog\Blog\Blog.Domain\bin\Debug\PagedList.Mvc.dll
+D:\GitHub\Blog\Blog\Blog.Domain\bin\Debug\PagedList.Mvc.xml

@@ -20,10 +20,11 @@ namespace Blog.Domain.Entities
         [Required(ErrorMessage = "Please input article description")]
         public string Description { get; set; }
         [HiddenInput(DisplayValue = false)]
-        public virtual string Slug { get; set; }
+       
 
         public IEnumerable<Review> Reviews { get; set; }
-        public IEnumerable<Author> Authors { get; set; }
+        public virtual ICollection<Author> Authors { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
         public Article()
         {
             Reviews = new List<Review>();
@@ -45,7 +46,7 @@ namespace Blog.Domain.Entities
 
         public int So_so { get; set; }
         //navigation prop
-        public virtual ICollection<Tag> Tags { get; set; }
+       
        
 
 

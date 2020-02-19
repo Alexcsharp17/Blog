@@ -17,11 +17,18 @@ namespace Blog.Domain.Concrete
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Article>().HasMany(a => a.Authors)
+               .WithMany(au => au.Articles)
+               .Map(a => a.MapLeftKey("ArtlicleId")
+               .MapRightKey("AuthorId")
+               .ToTable("ArticleAuthor"));
+
             modelBuilder.Entity<Article>().HasMany(a => a.Tags)
                 .WithMany(t => t.Articles)
                 .Map(t => t.MapLeftKey("ArtlicleId")
                 .MapRightKey("TagId")
                 .ToTable("ArticleStudent"));
+           
         }
     }
 }

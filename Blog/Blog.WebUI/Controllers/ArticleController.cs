@@ -30,25 +30,7 @@ namespace Blog.WebUI.Controllers
            
             return View();
         }
-        [HttpGet]
-        public ActionResult AddArticle()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult AddArticle(Article article)
-        {
-            if (ModelState.IsValid)
-            {
-                article.Date = DateTime.Now.Date;
-                repository.SaveArticle(article);
-                ViewBag.AddStatus = true;
-                return RedirectToAction("Index", "Home");
-            }
-            else{ 
-            return View(article);
-            }
-        }
+       
         [HttpPost]
         public ActionResult ArtDetails(int artId)
         {     

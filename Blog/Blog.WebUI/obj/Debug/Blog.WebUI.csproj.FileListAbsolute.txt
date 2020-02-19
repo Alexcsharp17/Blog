@@ -305,3 +305,7 @@ F:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.csprojAssemblyReference.cach
 F:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.csproj.CopyComplete
 F:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.dll
 F:\GitHub\Blog\Blog\Blog.WebUI\obj\Debug\Blog.WebUI.pdb
+D:\GitHub\Blog\Blog\Blog.WebUI\bin\PagedList.dll
+D:\GitHub\Blog\Blog\Blog.WebUI\bin\PagedList.Mvc.dll
+D:\GitHub\Blog\Blog\Blog.WebUI\bin\PagedList.xml
+D:\GitHub\Blog\Blog\Blog.WebUI\bin\PagedList.Mvc.xml

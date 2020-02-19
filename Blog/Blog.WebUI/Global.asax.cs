@@ -15,7 +15,7 @@ namespace Blog.WebUI
         protected void Application_Start()
         {
             //Db initializer
-            Database.SetInitializer(new BlogDbInitializer());
+           // Database.SetInitializer(new BlogDbInitializer());
 
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);

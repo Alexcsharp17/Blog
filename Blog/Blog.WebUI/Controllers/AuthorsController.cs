@@ -1,4 +1,5 @@
 ﻿using Blog.Domain.Abstract;
+using Blog.Domain.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +9,17 @@ using System.Web.Mvc;
 namespace Blog.WebUI.Controllers
 {
     public class AuthorsController : Controller
-    {
+    {    
         private IAuthorRepository repository;
         public AuthorsController(IAuthorRepository repo)
         {
             repository = repo;
         }
-
-        public ActionResult List()
-        {
+        EFDbContext db = new EFDbContext();
+        public ActionResult Details(int aId)
+        {  
             
-            return View(repository.Authors);
+            return View(repository.FindAuthor(aId));
         }
     }
 }

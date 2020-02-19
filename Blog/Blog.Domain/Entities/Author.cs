@@ -13,7 +13,7 @@ namespace Blog.Domain.Entities
         [HiddenInput(DisplayValue = false)]
         public int AuthorId { get; set; }
         public string Name { get; set; }
-        public IEnumerable<Article> Articles { get; set; }
+        public virtual ICollection<Article> Articles { get; set; }
         public Author()
         {
             this.Articles = new List<Article>();

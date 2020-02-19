@@ -2,11 +2,13 @@
 using Blog.Domain.Concrete;
 using Blog.Domain.Entities;
 using Blog.WebUI.Models;
+using PagedList;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using PagedList.Mvc;
 
 namespace Blog.WebUI.Controllers
 {
@@ -19,8 +21,9 @@ namespace Blog.WebUI.Controllers
             repository = repo;
         }
 
-        public ActionResult Index(int tag=0, int page = 1)
+        public ActionResult Index(int? page, int tag = 0)
         {
+            int pageNumber = (page ?? 1);
 
             IEnumerable<Article> articles;
             if (tag == 0)
@@ -34,12 +37,12 @@ namespace Blog.WebUI.Controllers
                articles = repository.Articles.ToList().Where(a => a.Tags.FirstOrDefault(t=>t.TagId==tag)!=null).ToList();
             }
             
-            PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = articles.Count() };
-            articles = articles.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+            PageInfo pageInfo = new PageInfo { PageNumber = pageNumber, PageSize = pageSize, TotalItems = articles.Count() };
+            articles = articles.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
 
             IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Articles = articles };
 
-            return View(ivm);
+            return View(articles.ToPagedList(pageNumber,pageSize));
         }
 
         public ActionResult Details(int id=1)

@@ -1,4 +1,5 @@
 ﻿using Blog.Domain.Abstract;
+using Blog.Domain.Concrete;
 using Blog.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,10 +11,13 @@ namespace Blog.WebUI.Areas.Admin.Controllers
 {
     public class MainController : Controller
     {
+        EFBlogRepository db = new EFBlogRepository();
+        private ITagRepository reposittag;
         private IArticleRepository repository;
-        public MainController(IArticleRepository repo)
+        public MainController(IArticleRepository repo , ITagRepository repo2)
         {
             repository = repo;
+            reposittag = repo2;
         }
         public ActionResult Index()
         {
@@ -30,48 +34,102 @@ namespace Blog.WebUI.Areas.Admin.Controllers
         // GET: Admin/Main/Create
         public ActionResult Create()
         {
-            
+            var tags = db.Tags;
+            List<string> tagss= new List<string>();
+            foreach(var tag in tags)
+            {
+                tagss.Add(tag.Name);
+            }
+            ViewBag.Tag = tagss;
             return View();
         }
 
         // POST: Admin/Main/Create
         [HttpPost]
-        public ActionResult Create(Article article)
+        public ActionResult Create(Article article, string[] tgs)
         {
             if (ModelState.IsValid)
-            {
+            { 
+
+
+                var tags = from t in db.Tags
+                           where tgs.Contains(t.Name)
+                           select t;
+                    foreach(var tg in tags)
+                {
+                    article.Tags.Add(tg);
+                }
+                   
                 article.Date = DateTime.Today;
-                repository.SaveArticle(article);
+                db.SaveArticle(article);
                 ViewBag.Res = "true";
-                return View();
+                return RedirectToAction("Index", "Main");
             }
-            
-            else return View(article);
+            else
+            {
+                var tags = reposittag.Tags;
+                List<string> tagss = new List<string>();
+                foreach (var tag in tags)
+                {
+                    tagss.Add(tag.Name);
+                }
+                ViewBag.Tag = tagss;
+                return View(article);
+            }
         }
 
         // GET: Admin/Main/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id )
         {
+            Article article = db.FindArticle(id);
+            if (article == null)
+            {
+                return HttpNotFound();
+            }
+            var tags = reposittag.Tags;
+            List<string> tagss = new List<string>();
+            foreach (var tag in tags)
+            {
+                tagss.Add(tag.Name);
+            }
+            ViewBag.Tag = tagss;
+            return View(article);
            
-            return View(repository.FindArticle(id));
         }
 
         // POST: Admin/Main/Edit/5
         [HttpPost]
-        public ActionResult Edit(Article article)
+        public ActionResult Edit(Article article,string[] tgs)
         {
-            if (ModelState.IsValid) {
-                repository.SaveArticle(article);
-                    return View();
+            if (ModelState.IsValid)
+            {
+                article.Date = DateTime.Now.Date;
+                foreach (var t in db.Tags.Where(t => tgs.Contains(t.Name)))
+                {
+                    article.Tags.Add(t);
+                }
+
+                db.SaveArticle(article);
+                return RedirectToAction("Index", "Main");
             }
-            return View(article);
+            else
+            {
+                var tags = reposittag.Tags;
+                List<string> tagss = new List<string>();
+                foreach (var tag in tags)
+                {
+                    tagss.Add(tag.Name);
+                }
+                ViewBag.Tag = tagss;
+                return View(article);
+            }
         }
 
         // GET: Admin/Main/Delete/5
         public ActionResult Delete(int id)
         {
-            repository.DeleteArticle(id);
-            return View();
+            db.DeleteArticle(id);
+            return RedirectToAction("Index", "Main");
         }
 
        

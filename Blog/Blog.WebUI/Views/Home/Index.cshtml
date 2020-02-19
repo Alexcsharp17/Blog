@@ -1,18 +1,18 @@
-﻿@model Blog.WebUI.Models.IndexViewModel
-@using Blog.WebUI.Helpers
+﻿@model PagedList.IPagedList<Blog.Domain.Entities.Article>
+@using PagedList.Mvc
 @using Blog.Domain.Entities
 
 @{
     ViewBag.Title = "Index";
 }
-
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 
 
 
 
 <div id="rev_area" class=" pb-4 mt-4 pt-1">
-    @foreach (var a in Model.Articles)
+    @foreach (var a in Model)
     {
         <div class="card offset-1 mt-3 mr-5">
             <div class="card-header text-center">
@@ -21,10 +21,10 @@
             </div>
             <div class="card-body">
                 <div class="text-muted text-right">
-                     @foreach (Tag t in a.Tags)
-                     {
-                         @Html.ActionLink("#" + t.Name, "Index", "Home", new { tag = t.TagId }, null)
-                     }
+                    @foreach (Tag t in a.Tags)
+                    {
+                        @Html.ActionLink("#" + t.Name, "Index", "Home", new { tag = t.TagId }, null)
+                    }
 
 
                 </div>
@@ -45,12 +45,11 @@
 
     }
 </div>
-<p class="btn btn-secondary mt-2 offset-1">
-    @Html.ActionLink("Add Artcicle", "AddArticle", "Article")
-</p>
-<div class="btn-group float-right mt-5 ">
-    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
-</div>
+
+Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
 
 
 

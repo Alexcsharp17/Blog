@@ -37,6 +37,8 @@ namespace Blog.WebUI.Infrastracture
             {
             kernel.Bind<IArticleRepository>().To<EFBlogRepository>();
             kernel.Bind<IReviewRepository>().To<EFBlogRepository>();
+            kernel.Bind<IAuthorRepository>().To<EFBlogRepository>();
+            kernel.Bind<ITagRepository>().To<EFBlogRepository>();
         }
     }
 }

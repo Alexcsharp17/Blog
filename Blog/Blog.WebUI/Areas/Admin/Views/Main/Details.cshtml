@@ -33,7 +33,10 @@
             @Html.DisplayFor(model => model.Date)
         </dd>
 
-        
+        @foreach(Blog.Domain.Entities.Tag tag in Model.Tags)
+        {
+            <li>@tag.Name</li>
+        }
 
     </dl>
 </div>

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Blog.Domain.Concrete
 {
-    public class EFBlogRepository : IArticleRepository , IReviewRepository, IAuthorRepository
+    public class EFBlogRepository : IArticleRepository , IReviewRepository, IAuthorRepository,ITagRepository
     {
         EFDbContext context = new EFDbContext();
 
@@ -22,6 +22,7 @@ namespace Blog.Domain.Concrete
         public IEnumerable<Review> Reviews { get { return context.Reviews; } }
 
         public IEnumerable<Author> Authors { get { return context.Authors; } }
+        public IEnumerable<Tag> Tags { get { return context.Tags; } }
         public void SaveArticle(Article article)
         {
             if (article.ArticleId == 0)
@@ -72,6 +73,22 @@ namespace Blog.Domain.Concrete
             }
             context.SaveChanges();
         }
+        public void SaveTag(Tag tag)
+        {
+            if (tag.TagId== 0)
+                context.Tags.Add(tag);
+            else
+            {
+                Tag dbEntry = context.Tags.Find(tag.TagId);
+                if (dbEntry != null)
+                {
+                    dbEntry.Name = tag.Name;
+                    dbEntry.TagId = tag.TagId;
+
+                }
+            }
+            context.SaveChanges();
+        }
         public Article FindArticle(int artId)
         {
             var art = context.Articles.Find(artId);
@@ -87,6 +104,11 @@ namespace Blog.Domain.Concrete
         {
             var auth = context.Authors.Find(authId);
             return (auth);
+        }
+        public Tag FindTag(int TagId)
+        {
+            var tag = context.Tags.Find(TagId);
+            return (tag);
         }
         public Article DeleteArticle(int articleId)
         {
@@ -114,6 +136,16 @@ namespace Blog.Domain.Concrete
             if (dbEntry != null)
             {
                 context.Authors.Remove(dbEntry);
+                context.SaveChanges();
+            }
+            return dbEntry;
+        }
+        public Tag DeleteTag(int TagId)
+        {
+            Tag dbEntry = context.Tags.Find(TagId);
+            if (dbEntry != null)
+            {
+                context.Tags.Remove(dbEntry);
                 context.SaveChanges();
             }
             return dbEntry;
