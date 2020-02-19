@@ -26,12 +26,13 @@ namespace Blog.Domain.Entities
         public Article()
         {
             Reviews = new List<Review>();
+            Tags = new List<Tag>();
 
         }
 
-        [Required]
         
-        public string Categories { get; set; }
+        
+       
         [HiddenInput(DisplayValue = false)]
         [DataType(DataType.Date)]
         public DateTime Date { get; set; }
@@ -41,6 +42,10 @@ namespace Blog.Domain.Entities
         public int No { get; set; }
 
         public int So_so { get; set; }
+        //navigation prop
+        public virtual ICollection<Tag> Tags { get; set; }
+       
+
 
     }
 }

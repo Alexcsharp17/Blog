@@ -12,5 +12,15 @@ namespace Blog.Domain.Concrete
     {
         public DbSet<Article> Articles { get; set; }
         public DbSet<Review> Reviews { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Article>().HasMany(a => a.Tags)
+                .WithMany(t => t.Articles)
+                .Map(t => t.MapLeftKey("ArtlicleId")
+                .MapRightKey("TagId")
+                .ToTable("ArticleStudent"));
+        }
     }
 }

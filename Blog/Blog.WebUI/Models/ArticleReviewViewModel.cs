@@ -10,6 +10,7 @@ namespace Blog.WebUI.Models
     {
         public Article article;
         public IEnumerable<Review> reviews;
+        
         public ArticleReviewViewModel(IEnumerable<Review> reviews, Article article)
         {
             this.article = article;

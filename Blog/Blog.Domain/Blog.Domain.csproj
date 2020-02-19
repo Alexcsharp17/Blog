@@ -80,6 +80,7 @@
     <Compile Include="Entities\Author.cs" />
     <Compile Include="Entities\PageInfo.cs" />
     <Compile Include="Entities\Review.cs" />
+    <Compile Include="Entities\Tag.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

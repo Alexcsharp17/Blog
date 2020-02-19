@@ -1,0 +1,10 @@
+﻿@using Blog.Domain.Entities
+@model Blog.Domain.Entities.Article
+ @Model.Name;
+<br />
+@Model.Description
+<br />
+@foreach(Tag t in Model.Tags)
+{
+    <P>@t.Name</P>
+}

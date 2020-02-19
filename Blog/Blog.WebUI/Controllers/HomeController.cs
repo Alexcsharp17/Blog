@@ -14,43 +14,42 @@ namespace Blog.WebUI.Controllers
     {
         public int pageSize = 3;
         private IArticleRepository repository;
-        public HomeController(IArticleRepository repo)
+        public HomeController(IArticleRepository repo )
         {
             repository = repo;
         }
-     
-        public ActionResult Index(string category,int page=1)
+
+        public ActionResult Index(int tag=0, int page = 1)
         {
 
-            IEnumerable<Article> articles  ;
-            if (category == null)
+            IEnumerable<Article> articles;
+            if (tag == 0)
             {
-               articles = repository.Articles;
+                articles = repository.Articles.ToList();
             }
             else
             {
-               articles = repository.FindArticle(category);
+                Tag tagg = new Tag { TagId = tag };
+               // articles = repository.Articles.ToList();
+               articles = repository.Articles.ToList().Where(a => a.Tags.FirstOrDefault(t=>t.TagId==tag)!=null).ToList();
             }
-            foreach (var a in articles)
-            {
-                if (a.Description.Length > 200)
-                {
-                    a.Slug = a.Description.Substring(0, 200) + "...";
-
-
-                }
-                else
-                {
-                    a.Slug = a.Description;
-                }
-                
-            }
+            
             PageInfo pageInfo = new PageInfo { PageNumber = page, PageSize = pageSize, TotalItems = articles.Count() };
-            articles = articles.Skip((page - 1) * pageSize).Take(pageSize);
-         
+            articles = articles.Skip((page - 1) * pageSize).Take(pageSize).ToList();
+
             IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Articles = articles };
 
             return View(ivm);
+        }
+
+        public ActionResult Details(int id=1)
+        {
+            Article article = repository.FindArticle(id);
+            if (article == null)
+            {
+                return HttpNotFound();
+            }
+            return View(article);
         }
        
 

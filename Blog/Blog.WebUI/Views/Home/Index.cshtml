@@ -1,5 +1,6 @@
 ﻿@model Blog.WebUI.Models.IndexViewModel
 @using Blog.WebUI.Helpers
+@using Blog.Domain.Entities
 
 @{
     ViewBag.Title = "Index";
@@ -20,19 +21,14 @@
             </div>
             <div class="card-body">
                 <div class="text-muted text-right">
-                    @{
-                        var cat = a.Categories.Split(' ');
-                        foreach (var c in cat)
-                        {
-                            @Html.ActionLink(c, "Index", "Home", new { category = c }, new { @class = "text-muted text-right " })
+                     @foreach (Tag t in a.Tags)
+                     {
+                         @Html.ActionLink("#" + t.Name, "Index", "Home", new { tag = t.TagId }, null)
+                     }
 
-
-                            <span> </span>
-                        }
-                    }
 
                 </div>
-                <p class="card-text">@a.Slug</p>
+                <p class="card-text">@{<span>@a.Description.Substring(0, 200).ToString() ... </span>}</p>
                 @using (Html.BeginForm("ArtDetails", "Article", FormMethod.Post))
                 {
                     <input type="hidden" name="artId" value=@a.ArticleId>
@@ -52,7 +48,7 @@
 <p class="btn btn-secondary mt-2 offset-1">
     @Html.ActionLink("Add Artcicle", "AddArticle", "Article")
 </p>
-<div class="btn-group float-right mt-5">
+<div class="btn-group float-right mt-5 ">
     @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
 </div>
 

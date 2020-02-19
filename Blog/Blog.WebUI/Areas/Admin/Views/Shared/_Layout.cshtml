@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/bootstrap.min.css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <link href="~/Content/Main.css" rel="stylesheet" />
+
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark container-fluid">
+        <span class="navbar-brand ">
+            <a href="#"><img src="~/Content/logo.png" style="height:70px;" /></a>
+        </span>
+       
+        <h3 id="ttle" class="">BestBlog</h3>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="btn btn-light ml-1 border-dark">@Html.ActionLink("Main", "Index", "Home")</div>
+            <div class="btn btn-light ml-1 border-dark">@Html.ActionLink("Ancet", "Ancet", "Ancet")</div>
+            <div class="btn btn-light ml-1 border-dark">@Html.ActionLink("Reviews", "ViewReiviws", "Review")</div>
+        </div>
+    </nav>
+
+    <div class=" row  " id="m_cont">
+
+        <div class="content main-body offset-1 col-8"> @RenderBody()</div>
+        <div class="rigt_sidebar col2">
+            <div class="btn-group-vertical mt-3">
+
+                <div class="btn btn-light ml-1 border-dark">@Html.ActionLink("Main", "Index", "Home")</div>
+                <div class="btn btn-light ml-1 border-dark">@Html.ActionLink("Ancet", "Ancet", "Ancet")</div>
+                <div class="btn btn-light ml-1 border-dark">@Html.ActionLink("Reviews", "ViewReiviws", "Review")</div>
+            </div>
+            <div>
+                @RenderSection("Vote", false)
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+    <footer id="footer" class="bg-dark">
+        <div class="row">
+            <div class="offset-1 col-4 cpy">
+                <p class="copy">&copy; Alex Grebtsov 2020</p>
+            </div>
+            <div class=" offset-5 col-1 anchor"><a href="#logo">Top</a></div>
+        </div>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/scripts/jquery-1.10.2.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.js")
+    @RenderSection("scripts", required: false)
+
+   
+</body>
+</html>

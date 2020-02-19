@@ -1,6 +1,6 @@
 ﻿body, html {
   
-    height: 100vh;
+    height: 100%;
     min-height: 100%;
 }
 body{
@@ -10,18 +10,21 @@ body{
 
 
 footer {
-    
-    bottom: 0;
+    /*position:absolute;
+    bottom:0;*/
     height: 50px;
     color: #b1b1b1;
     background-color: #ffffff;
-    flex-grow:0;
+    
+}
+.wraper{
+    
 }
 
 .content {
     /*min-height: calc(100%-50px);
     margin-bottom:-50px;*/
-    flex-grow: 1;
+    flex: 1 0 auto;
 }
 /*
 .content:after{
@@ -87,11 +90,6 @@ textarea {
     width: 80%;
 }
 
-.main-body {
- 
-    
-   
-}
 
     .main-body h3 {
         text-align: center;
@@ -150,3 +148,4 @@ textarea {
 #m_cont {
     background-color: #C8A2C8;
 }
+
