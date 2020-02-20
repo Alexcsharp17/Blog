@@ -42,7 +42,7 @@ namespace Blog.WebUI.Controllers
 
             IndexViewModel ivm = new IndexViewModel { PageInfo = pageInfo, Articles = articles };
 
-            return View(articles.ToPagedList(pageNumber,pageSize));
+            return View(ivm);
         }
 
         public ActionResult Details(int id=1)

@@ -1,5 +1,5 @@
-﻿@model PagedList.IPagedList<Blog.Domain.Entities.Article>
-@using PagedList.Mvc
+﻿@model Blog.WebUI.Models.IndexViewModel
+@using Blog.WebUI.Helpers
 @using Blog.Domain.Entities
 
 @{
@@ -12,7 +12,7 @@
 
 
 <div id="rev_area" class=" pb-4 mt-4 pt-1">
-    @foreach (var a in Model)
+    @foreach (var a in Model.Articles)
     {
         <div class="card offset-1 mt-3 mr-5">
             <div class="card-header text-center">
@@ -38,7 +38,13 @@
             </div>
             <div class="card-footer text-muted text-left">
                 <span>@a.Date.ToString().Split(' ')[0]</span>
-                <span class="float-right">Author</span>
+                <span class="float-right">
+                    @foreach(var au in a.Authors)
+                    {
+                        <span>@au.Name</span>
+                    }
+
+                </span>
             </div>
 
         </div>
@@ -46,9 +52,9 @@
     }
 </div>
 
-Страница @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) из @Model.PageCount
-
-@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+<div class="btn btn-group">
+@Html.PageLinks( Model.PageInfo,x=>Url.Action("Index",new { page = x })) 
+</div>
 
 
 
