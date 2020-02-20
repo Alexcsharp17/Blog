@@ -179,6 +179,14 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Images\Layer10.jpg" />
+    <Content Include="Content\Images\Layer3.jpg" />
+    <Content Include="Content\Images\Layer4.jpg" />
+    <Content Include="Content\Images\Layer5.jpg" />
+    <Content Include="Content\Images\Layer6.jpg" />
+    <Content Include="Content\Images\Layer7.jpg" />
+    <Content Include="Content\Images\Layer8.jpg" />
+    <Content Include="Content\Images\Layer9.jpg" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\Main.css" />
     <Content Include="Content\PagedList.css" />
@@ -214,6 +222,7 @@
     <Content Include="Areas\Admin\Views\Main\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Main\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Main\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Main\FindAuthor.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

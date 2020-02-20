@@ -105,6 +105,12 @@ namespace Blog.Domain.Concrete
             var auth = context.Authors.Find(authId);
             return (auth);
         }
+        public IEnumerable<Author> FindAuthors(string autname)
+        {
+            var auth = context.Authors.Where(a=>a.Name.Contains(autname));
+            return (auth);
+        }
+
         public Tag FindTag(int TagId)
         {
             var tag = context.Tags.Find(TagId);

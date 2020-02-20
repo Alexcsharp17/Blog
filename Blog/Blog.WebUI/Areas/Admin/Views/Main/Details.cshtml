@@ -1,6 +1,6 @@
 ﻿@model Blog.Domain.Entities.Article
 
-<div>
+<div class="bg-white">
     <h4>Article</h4>
     <hr />
     <dl class="dl-horizontal">
@@ -20,11 +20,11 @@
             @Html.DisplayFor(model => model.Description)
         </dd>
 
-        
 
-        
 
-       
+
+
+
         <dt>
             @Html.DisplayNameFor(model => model.Date)
         </dt>
@@ -33,14 +33,15 @@
             @Html.DisplayFor(model => model.Date)
         </dd>
 
-        @foreach(Blog.Domain.Entities.Tag tag in Model.Tags)
+        @foreach (Blog.Domain.Entities.Tag tag in Model.Tags)
         {
             <li>@tag.Name</li>
         }
 
     </dl>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId },new { @class="btn btn-primary"}) |
+        @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-primary" })
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ArticleId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+

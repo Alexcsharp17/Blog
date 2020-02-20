@@ -17,8 +17,14 @@ footer {
     background-color: #ffffff;
     
 }
-.wraper{
-    
+#logo {
+    background-color: #1a54e7;
+    width: 150px;
+    height:25px;
+}
+#lg {
+    width: 140px;
+    height: 20px;
 }
 
 .content {
@@ -146,6 +152,9 @@ textarea {
     background-image:url( back.jpg);
 }
 #m_cont {
-    background-color: #C8A2C8;
+    background-image: url( back.jpg);
+}
+.wrapper {
+    background-image: url( back.jpg);
 }
 

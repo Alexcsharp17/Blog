@@ -23,11 +23,26 @@
                 <div class="text-muted text-right">
                     @foreach (Tag t in a.Tags)
                     {
-                        @Html.ActionLink("#" + t.Name, "Index", "Home", new { tag = t.TagId }, null)
+                        @Html.ActionLink("#" + t.Name, "Index", "Home", new { tag = t.TagId }, new { @class = "text-muted font-weight-bold" })
+                    }
+                    <br />
+                    @{
+                        string route = "";
+                        if (a.Immage != null)
+                        {
+                            route = a.Immage.ToString();
+                        }
+
                     }
 
 
                 </div>
+                <div class="justify-content-center container-fluid text-center">
+                    
+                        <img src="~/Content/Images/Layer3.jpg" alt="Image not found" class="img-fluid " />
+                   
+                </div>
+                
                 <p class="card-text">@{<span>@a.Description.Substring(0, 200).ToString() ... </span>}</p>
                 @using (Html.BeginForm("ArtDetails", "Article", FormMethod.Post))
                 {
@@ -52,8 +67,9 @@
     }
 </div>
 
-<div class="btn btn-group">
-@Html.PageLinks( Model.PageInfo,x=>Url.Action("Index",new { page = x })) 
+<div class="btn btn-group float-right ">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x })) 
+
 </div>
 
 

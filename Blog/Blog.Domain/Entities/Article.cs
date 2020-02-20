@@ -33,7 +33,7 @@ namespace Blog.Domain.Entities
 
         }
 
-        
+        public  string Immage { get; set; }
         
        
         [HiddenInput(DisplayValue = false)]

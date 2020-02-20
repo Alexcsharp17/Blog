@@ -17,7 +17,8 @@ namespace Blog.WebUI.Models
                 ArticleId = 1,
                 Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam pulvinar lectus nec purus posuere, vitae egestas nunc porta. Cras maximus congue fringilla. Duis sagittis nisl eu sapien facilisis, sodales placerat ligula tempus. Curabitur orci purus, viverra sagittis lobortis ac, feugiat non diam. In id magna a velit feugia",
                 Name = "Article1",
-                Date = DateTime.Now.Date
+                Date = DateTime.Now.Date,
+                Immage="~/Content/Images/Layer3.jpg" 
             };
             Article a2 = new Article
             {

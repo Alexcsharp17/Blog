@@ -1,0 +1,10 @@
+﻿@model IEnumerable<Blog.Domain.Entities.Author>
+
+@{
+    Layout = null;
+ }
+
+@foreach (var a in Model)
+{
+    <li>@a.Name</li>
+}

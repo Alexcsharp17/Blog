@@ -36,12 +36,19 @@ namespace Blog.WebUI.Areas.Admin.Controllers
         {
             var tags = db.Tags;
             List<string> tagss= new List<string>();
+          
             foreach(var tag in tags)
             {
                 tagss.Add(tag.Name);
             }
+
             ViewBag.Tag = tagss;
             return View();
+        }
+        public ActionResult FindAuthor(string author)
+        {
+           IEnumerable<Author> authors= db.FindAuthors(author);
+            return View(authors);
         }
 
         // POST: Admin/Main/Create
